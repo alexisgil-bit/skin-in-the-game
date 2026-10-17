@@ -17,7 +17,7 @@ const dyn = [
     icon: Scissors,
     title: "Cacería de listones",
     body: "Los corredores llevan cintas colgando de la cintura y una playera retando a la multitud: \u201cArráncame un listón y llévate 50% de descuento\u201d. Generas persecución, risas y contenido viral en vivo.",
-    img: athletes[1].img,
+    img: athletes[1]!.img,
     badge: "Arráncame un listón · 50% OFF",
   },
   {
@@ -25,7 +25,7 @@ const dyn = [
     icon: Sliders,
     title: "Formatos a la medida",
     body: "Tu marca pone las reglas del juego en la ruta.",
-    img: athletes[3].img,
+    img: athletes[3]!.img,
     badge: "Tus reglas",
   },
 ];
@@ -41,7 +41,7 @@ export function Dynamics() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [80, -80]);
-  const cur = dyn[sel];
+  const cur = dyn[sel]!;
 
   return (
     <section id="dinamicas" className="relative py-24">
