@@ -25,7 +25,7 @@ const sets: Record<string, Item[]> = {
 export function FloatingIcons({ mouse, variant }: { mouse: { x: number; y: number }; variant: "hero" | "cta" }) {
   return (
     <div className="pointer-events-none absolute inset-0 z-[5] hidden md:block">
-      {sets[variant].map((it, i) => {
+      {sets[variant]!.map((it, i) => {
         const blur = it.depth < 0.5 ? (0.5 - it.depth) * 14 : it.depth > 1.2 ? (it.depth - 1.2) * 10 : 0;
         return (
           <div

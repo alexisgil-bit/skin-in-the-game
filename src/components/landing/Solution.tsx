@@ -36,7 +36,7 @@ export function Solution() {
   const [maxPace, setMaxPace] = useState(270);
   const toSec = (p: string) => {
     const [m, s] = p.split(":").map(Number);
-    return m * 60 + s;
+    return (m ?? 0) * 60 + (s ?? 0);
   };
   const filtered = athletes.filter((a) => toSec(a.pace) <= maxPace);
 
@@ -92,7 +92,7 @@ export function Solution() {
             >
               <CamHeader cam="Cam 01" label="Invasión masiva" />
               <div className="dither scanlines absolute inset-0 grid grid-cols-3 grid-rows-2">
-                {[...athletes, athletes[0]].map((a, i) => (
+                {[...athletes, athletes[0]!].map((a, i) => (
                   <img
                     key={i}
                     src={a.img}
